@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Simmy - Dark Modern Responsive</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Poppins', sans-serif; }
+
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  /* Header text animation in/out */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeOutUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+  }
+  .animate-in {
+    animation: fadeInUp 0.8s forwards;
+  }
+  .animate-out {
+    animation: fadeOutUp 0.8s forwards;
+  }
+</style>
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 scroll-smooth">
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-gray-900 shadow-md z-50">
+  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
+    <div class="text-2xl font-bold text-indigo-500">Simmy</div>
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex gap-6">
+        <li><a href="#about" class="hover:text-indigo-400 transition-colors">Home</a></li>
+        <li><a href="biodata.html" class="hover:text-indigo-400 transition-colors">Biodata</a></li>
+        <li><a href="#pendidikan" class="hover:text-indigo-400 transition-colors">Pendidikan</a></li>
+        <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+    </ul>
+    <!-- Hamburger button -->
+    <button id="nav-toggle" class="md:hidden text-gray-100 focus:outline-none">
+      <i data-feather="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <ul id="nav-menu" class="hidden flex-col gap-4 px-6 pb-4 md:hidden">
+    <li><a href="#about" class="block py-2 hover:text-indigo-400 transition-colors">Home</a></li>
+    <li><a href="biodata.html" class="block py-2 hover:text-indigo-400 transition-colors">Biodata</a></li>
+    <li><a href="#pendidikan" class="block py-2 hover:text-indigo-400 transition-colors">Pendidikan</a></li>
+    <li><a href="#contact" class="block py-2 hover:text-indigo-400 transition-colors">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Header -->
+<header class="bg-gray-950 py-36 px-6 text-center relative overflow-hidden">
+    <h1 class="text-5xl font-bold mb-6 text-indigo-500 relative">
+        <span id="animated-text" class="inline-block opacity-0 translate-y-8">Simmy Project 2025</span>
+    </h1>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto opacity-0 translate-y-8" id="animated-subtext">
+        Your Best Programming Partner! Siap menemani saat kamu menulis kode, mencari solusi, atau mempelajari hal baru.
+    </p>
+</header>
+
+<!-- About Me -->
+<section id="about" class="py-20 max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold mb-12 text-center text-indigo-500">About Me</h2>
+    <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="src/profil-dicky.jpg" alt="Simmy Photo" class="w-52 h-52 rounded-full border-4 border-indigo-500 object-cover">
+        <div class="flex-1 text-center md:text-left">
+            <h3 class="text-2xl font-semibold mb-4 text-white">Simmy Pratama</h3>
+            <p class="text-gray-300 leading-relaxed">
+            Halo! Saya Simmy Pratama, mahasiswa Sistem Informasi Universitas Pembangunan Nasional. Saya tertarik pada pengembangan web, desain UI/UX, dan data analytics. Saya senang membuat proyek kreatif dan belajar hal baru di bidang teknologi informasi. 
+            </p>
+        </div>
+    </div>
+
+    <!-- Statistic Cards -->
+    <div class="flex justify-center gap-6 mt-12 flex-wrap">
+      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-indigo-500/50 transition-shadow w-40">
+        <i data-feather="folder" class="w-8 h-8 text-indigo-500 mb-2"></i>
+        <h3 class="text-3xl font-bold text-white">5</h3>
+        <p class="text-gray-300 mt-1">Projects</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-purple-500/50 transition-shadow w-40">
+        <i data-feather="award" class="w-8 h-8 text-purple-500 mb-2"></i>
+        <h3 class="text-3xl font-bold text-white">5</h3>
+        <p class="text-gray-300 mt-1">Licenses</p>
+      </div>
+      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-pink-500/50 transition-shadow w-40">
+        <i data-feather="briefcase" class="w-8 h-8 text-pink-500 mb-2"></i>
+        <h3 class="text-3xl font-bold text-white">4</h3>
+        <p class="text-gray-300 mt-1">Experience</p>
+      </div>
+    </div>
+</section>
+
+<!-- Tabs -->
+<section id="portfolio" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex justify-center gap-4 mb-8 border-b-2 border-gray-700 overflow-x-auto">
+        <button id="tab-projects" class="px-4 py-2 font-semibold text-indigo-500 border-b-2 border-indigo-500 focus:outline-none whitespace-nowrap">Projects</button>
+        <button id="tab-certificates" class="px-4 py-2 font-semibold text-gray-400 hover:text-indigo-500 focus:outline-none whitespace-nowrap">Certificates</button>
+    </div>
+
+    <!-- Projects Content -->
+    <div id="content-projects" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-white">Alat Penggiling Adonan Chireng</h4>
+                <p class="text-gray-300 mb-4">Alat inovatif untuk penggilingan adonan chireng.</p>
+                <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
+            </div>
+        </div>
+        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-white">Dishnest</h4>
+                <p class="text-gray-300 mb-4">Tempat penyimpanan alat dapur multifungsi.</p>
+                <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
+            </div>
+        </div>
+        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-white">Rak Sepatu</h4>
+                <p class="text-gray-300 mb-4">Rak sepatu dengan mekanisme buka pintu inovatif.</p>
+                <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificates Content -->
+    <div id="content-certificates" class="hidden grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-white">Certificate Web Development</h4>
+                <p class="text-gray-300 mb-4">Sertifikat kursus Web Development.</p>
+                <a href="detail-sertifikat.html" class="text-indigo-400 font-medium hover:underline">View →</a>
+            </div>
+        </div>
+        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-white">Certificate Data Analytics</h4>
+                <p class="text-gray-300 mb-4">Sertifikat kursus Data Analytics.</p>
+                <a href="detail-sertifikat.html" class="text-indigo-400 font-medium hover:underline">View →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 max-w-2xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold mb-12 text-center text-indigo-500">Get in Touch</h2>
+    <form class="flex flex-col gap-6">
+        <input type="text" placeholder="Your Name" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <input type="email" placeholder="Your Email" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <textarea placeholder="Your Message" rows="5" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        <button type="submit" class="bg-indigo-500 text-gray-900 py-4 rounded-lg font-semibold hover:bg-indigo-600 transition-colors">Send Message</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-12 bg-gray-900 text-gray-400">
+    <h3 class="text-xl font-semibold mb-4 text-indigo-500" id="contact">Connect With Me</h3>
+    <div class="flex justify-center gap-6 mb-4 flex-wrap">
+        <a href="#" class="text-indigo-500 hover:text-indigo-400" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6 inline-block"></i></a>
+        <a href="#" class="text-pink-500 hover:text-pink-400" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6 inline-block"></i></a>
+        <a href="#" class="text-red-500 hover:text-red-400" aria-label="YouTube"><i data-feather="youtube" class="w-6 h-6 inline-block"></i></a>
+        <a href="#" class="text-gray-100 hover:text-white" aria-label="GitHub"><i data-feather="github" class="w-6 h-6 inline-block"></i></a>
+        <a href="#" class="text-black hover:text-gray-300" aria-label="TikTok"><i data-feather="smartphone" class="w-6 h-6 inline-block"></i></a>
+    </div>
+    <p>© 2025 Simmy X ARDesgn</p>
+</footer>
+
+<script>
+feather.replace();
+
+// Hamburger toggle
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+});
+
+// Tabs
+const tabProjects = document.getElementById('tab-projects');
+const tabCertificates = document.getElementById('tab-certificates');
+const contentProjects = document.getElementById('content-projects');
+const contentCertificates = document.getElementById('content-certificates');
+
+tabProjects.addEventListener('click', () => {
+    contentProjects.classList.remove('hidden');
+    contentCertificates.classList.add('hidden');
+    tabProjects.classList.add('text-indigo-500', 'border-b-2', 'border-indigo-500');
+    tabProjects.classList.remove('text-gray-400');
+    tabCertificates.classList.add('text-gray-400');
+    tabCertificates.classList.remove('text-indigo-500', 'border-b-2', 'border-indigo-500');
+});
+
+tabCertificates.addEventListener('click', () => {
+    contentCertificates.classList.remove('hidden');
+    contentProjects.classList.add('hidden');
+    tabCertificates.classList.add('text-indigo-500', 'border-b-2', 'border-indigo-500');
+    tabCertificates.classList.remove('text-gray-400');
+    tabProjects.classList.add('text-gray-400');
+    tabProjects.classList.remove('text-indigo-500', 'border-b-2', 'border-indigo-500');
+});
+
+// Header text animation in/out
+const animatedText = document.getElementById('animated-text');
+const animatedSubtext = document.getElementById('animated-subtext');
+
+function animateTextLoop() {
+    // Masuk
+    animatedText.classList.remove('animate-out');
+    animatedText.classList.add('animate-in');
+    animatedSubtext.classList.remove('animate-out');
+    animatedSubtext.classList.add('animate-in');
+
+    // Keluar setelah 3 detik
+    setTimeout(() => {
+        animatedText.classList.remove('animate-in');
+        animatedText.classList.add('animate-out');
+        animatedSubtext.classList.remove('animate-in');
+        animatedSubtext.classList.add('animate-out');
+    }, 3000);
+
+    // Looping setiap 4 detik
+    setTimeout(animateTextLoop, 4000);
+}
+
+animateTextLoop();
+</script>
+
+</body>
+</html>

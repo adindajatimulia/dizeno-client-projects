@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates - Simmy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Poppins', sans-serif; }
+  /* Fade-in scale animation */
+  @keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  .animate-fadeInScale {
+    animation: fadeInScale 0.8s ease forwards;
+  }
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+</style>
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 scroll-smooth">
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-gray-900 shadow-md z-50">
+  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
+    <div class="text-2xl font-bold text-indigo-500">Simmy</div>
+    <ul class="hidden md:flex gap-6">
+      <li><a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a></li>
+      <li><a href="biodata.html" class="hover:text-indigo-400 transition-colors">Biodata</a></li>
+      <li><a href="certificates.html" class="hover:text-indigo-400 transition-colors">Certificates</a></li>
+      <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+    </ul>
+    <button id="nav-toggle" class="md:hidden text-gray-100 focus:outline-none">
+      <i data-feather="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+  <ul id="nav-menu" class="hidden flex-col gap-4 px-6 pb-4 md:hidden">
+    <li><a href="index.html" class="block py-2 hover:text-indigo-400 transition-colors">Home</a></li>
+    <li><a href="biodata.html" class="block py-2 hover:text-indigo-400 transition-colors">Biodata</a></li>
+    <li><a href="certificates.html" class="block py-2 hover:text-indigo-400 transition-colors">Certificates</a></li>
+    <li><a href="#contact" class="block py-2 hover:text-indigo-400 transition-colors">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Header -->
+<header class="bg-gray-950 py-20 px-6 text-center relative">
+  <h1 class="text-5xl font-bold mb-2 text-indigo-500 animate-fadeInScale">Certificates</h1>
+  <p class="text-gray-400 text-lg max-w-2xl mx-auto animate-fadeInScale">Berikut daftar sertifikat saya. Klik untuk melihat detail.</p>
+</header>
+
+<!-- Certificates Gallery -->
+<section class="max-w-5xl mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 gap-8">
+  <div class="overflow-hidden rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow transform scale-95 opacity-0 animate-fadeInScale animate-delay-100">
+    <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+         alt="Certificate 1" 
+         class="w-full h-auto object-cover rounded-lg">
+  </div>
+  <!-- Tambahkan sertifikat lain dengan delay bertahap jika perlu -->
+</section>
+
+<!-- Back Button -->
+<div class="max-w-6xl mx-auto mt-8 mb-12 text-center">
+  <a href="main-page.html" class="inline-block bg-gray-800 text-indigo-400 px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors">← Kembali ke Certificates</a>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-12 bg-gray-900 text-gray-400">
+  <h3 class="text-xl font-semibold mb-4 text-indigo-500">Connect With Me</h3>
+  <div class="flex justify-center gap-6 mb-4 flex-wrap">
+    <a href="#" class="text-indigo-500 hover:text-indigo-400" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6 inline-block"></i></a>
+    <a href="#" class="text-pink-500 hover:text-pink-400" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6 inline-block"></i></a>
+    <a href="#" class="text-red-500 hover:text-red-400" aria-label="YouTube"><i data-feather="youtube" class="w-6 h-6 inline-block"></i></a>
+    <a href="#" class="text-gray-100 hover:text-white" aria-label="GitHub"><i data-feather="github" class="w-6 h-6 inline-block"></i></a>
+    <a href="#" class="text-black hover:text-gray-300" aria-label="TikTok"><i data-feather="smartphone" class="w-6 h-6 inline-block"></i></a>
+  </div>
+  <p>© 2025 Simmy X ARDesgn</p>
+</footer>
+
+<script>
+feather.replace();
+
+// Hamburger toggle
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+});
+</script>
+
+</body>
+</html>
