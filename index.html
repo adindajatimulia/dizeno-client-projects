@@ -10,15 +10,6 @@
   body { font-family: 'Poppins', sans-serif; }
 
   /* Fade-in animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fadeIn {
-    animation: fadeIn 0.8s ease forwards;
-  }
-
-  /* Header text animation in/out */
   @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -27,212 +18,212 @@
     0% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-20px); }
   }
-  .animate-in {
-    animation: fadeInUp 0.8s forwards;
-  }
-  .animate-out {
-    animation: fadeOutUp 0.8s forwards;
-  }
+  .animate-in { animation: fadeInUp 0.8s forwards; }
+  .animate-out { animation: fadeOutUp 0.8s forwards; }
+  /* Animate pulse slowly for background shapes */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.2); opacity: 0.25; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 6s infinite;
+}
+
+/* Floating shapes animation */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float-slow {
+  animation: float-slow 8s infinite ease-in-out;
+}
+
+/* Particle dots animation */
+@keyframes dot-move {
+  0%, 100% { transform: translate(0,0); }
+  50% { transform: translate(10px, -10px); }
+}
+.animate-dot {
+  animation: dot-move 5s infinite ease-in-out;
+}
 </style>
 <script src="https://unpkg.com/feather-icons"></script>
 </head>
-<body class="bg-gray-950 text-gray-100 scroll-smooth">
+<body class="bg-gradient-to-b from-indigo-200 via-purple-200 to-pink-200 text-black scroll-smooth">
 
 <!-- Navbar -->
-<nav class="fixed w-full bg-gray-900 shadow-md z-50">
+<nav class="fixed w-full bg-gradient-to-r from-indigo-300 to-pink-300 shadow-md z-50">
   <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
-    <div class="text-2xl font-bold text-indigo-500">Dicky Arisandi</div>
-    <!-- Menu desktop -->
+    <div class="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-bal">Dicky Arisandi</div>
     <ul class="hidden md:flex gap-6">
         <li><a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a></li>
         <li><a href="biodata.html" class="hover:text-indigo-400 transition-colors">Biodata</a></li>
         <li><a href="biodata.html#pendidikan" class="hover:text-indigo-400 transition-colors">Pendidikan</a></li>
         <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
     </ul>
-    <!-- Hamburger button -->
-    <button id="nav-toggle" class="md:hidden text-gray-100 focus:outline-none">
+    <button id="nav-toggle" class="md:hidden text-black focus:outline-none">
       <i data-feather="menu" class="w-6 h-6"></i>
     </button>
   </div>
-  <!-- Mobile menu -->
-  <ul id="nav-menu" class="hidden flex-col gap-4 px-6 pb-4 md:hidden">
-    <li><a href="index.html" class="block py-2 hover:text-indigo-400 transition-colors">Home</a></li>
-    <li><a href="biodata.html" class="block py-2 hover:text-indigo-400 transition-colors">Biodata</a></li>
-    <li><a href="biodata.html#pendidikan" class="block py-2 hover:text-indigo-400 transition-colors">Pendidikan</a></li>
-    <li><a href="#contact" class="block py-2 hover:text-indigo-400 transition-colors">Contact</a></li>
+  <ul id="nav-menu" class="hidden flex-col gap-4 px-6 pb-4 md:hidden bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+    <li><a href="index.html" class="block py-2 hover:text-indigo-400">Home</a></li>
+    <li><a href="biodata.html" class="block py-2 hover:text-indigo-400">Biodata</a></li>
+    <li><a href="biodata.html#pendidikan" class="block py-2 hover:text-indigo-400">Pendidikan</a></li>
+    <li><a href="#contact" class="block py-2 hover:text-indigo-400">Contact</a></li>
   </ul>
 </nav>
 
 <!-- Header -->
-<header class="bg-gray-950 py-36 px-6 text-center relative overflow-hidden">
-    <h1 class="text-5xl font-bold mb-6 text-indigo-500 relative">
-        <span id="animated-text" class="inline-block opacity-0 translate-y-8">Dicky Arisandi</span>
-    </h1>
-    <p class="text-xl text-gray-400 max-w-2xl mx-auto opacity-0 translate-y-8" id="animated-subtext">
-         Your Best Industrial Partner! Siap membantu dalam dunia otomasi, perencanaan, dan pengembangan sistem industri.
-    </p>
+<header class="relative py-36 px-6 text-center overflow-hidden bg-gradient-to-b from-indigo-300 via-purple-300 to-pink-300">
+
+  <!-- Floating Shapes -->
+  <div class="absolute top-10 left-1/4 w-64 h-64 bg-purple-400 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
+  <div class="absolute bottom-10 right-1/3 w-72 h-72 bg-pink-400 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
+  <div class="absolute top-1/2 left-1/3 w-20 h-20 bg-indigo-500 rounded-full opacity-30 blur-xl animate-float-slow"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-16 h-16 bg-purple-500 rounded-full opacity-30 blur-xl animate-float-slow"></div>
+
+  <!-- Particle Dots -->
+  <div class="absolute top-0 left-0 w-full h-full">
+    <div class="dot bg-white opacity-30 w-2 h-2 rounded-full absolute animate-dot" style="top:20%; left:10%"></div>
+    <div class="dot bg-white opacity-30 w-2 h-2 rounded-full absolute animate-dot" style="top:50%; left:80%"></div>
+    <div class="dot bg-white opacity-30 w-2 h-2 rounded-full absolute animate-dot" style="top:70%; left:30%"></div>
+    <div class="dot bg-white opacity-30 w-2 h-2 rounded-full absolute animate-dot" style="top:30%; left:60%"></div>
+  </div>
+
+  <!-- Main Text -->
+  <h1 class="text-5xl font-bold mb-6 text-black drop-shadow-lg relative">
+      <span id="animated-text" class="inline-block opacity-0 translate-y-8">Dicky Arisandi</span>
+  </h1>
+  <p class="text-xl text-black max-w-2xl mx-auto opacity-0 translate-y-8" id="animated-subtext">
+       Your Best Industrial Partner! Siap membantu dalam dunia otomasi, perencanaan, dan pengembangan sistem industri.
+  </p>
 </header>
+
 
 <!-- About Me -->
 <section id="about" class="py-20 max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-12 text-center text-indigo-500">About Me</h2>
-    <div class="flex flex-col md:flex-row items-center gap-10">
-        <img src="src/profil-dicky.jpg" alt="Simmy Photo" class="w-52 h-52 rounded-full border-4 border-indigo-500 object-cover">
-        <div class="flex-1 text-center md:text-left">
-            <h3 class="text-2xl font-semibold mb-4 text-white">Simmy Pratama</h3>
-            <p class="text-gray-300 leading-relaxed">
-              Dicky Arisandy</span>, mahasiswa 
-              <span class="text-indigo-400 font-semibold">Teknik Industri</span> di 
-              <span class="text-indigo-400 font-semibold">Universitas Pembangunan Nasional “Veteran” Jawa Timur</span>.  
-              Saya memiliki ketertarikan di bidang <span class="text-indigo-400">otomasi industri</span> dan 
-              <span class="text-indigo-400">komunikasi internasional</span>.  
-              Dengan pemahaman dasar mengenai <span class="text-indigo-400">PLC (Programmable Logic Controller)</span> 
-              dan kemampuan <span class="text-indigo-400">berbahasa Inggris</span> yang baik, saya berusaha mengembangkan diri sebagai 
-              individu yang siap bersaing di dunia industri modern yang serba digital.
-            </p>
-        </div>
+  <h2 class="text-3xl font-bold mb-12 text-center text-black drop-shadow-md">About Me</h2>
+  <!-- Card utama About -->
+  <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-2xl p-8 shadow-2xl hover:shadow-indigo-500/50 transition-shadow flex flex-col md:flex-row items-center gap-8">
+    <img src="src/profil-dicky.jpg" alt="profil" class="w-52 h-52 rounded-full border-4 border-indigo-500 object-cover shadow-xl hover:scale-105 transition-transform">
+    
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-2xl font-semibold text-black mb-3">Dicky Arisandy</h3>
+      <p class="text-black leading-relaxed mb-4">
+        Dicky Arisandy, mahasiswa <span class="text-indigo-400 font-semibold">Teknik Industri</span> di 
+        <span class="text-indigo-400 font-semibold">Universitas Pembangunan Nasional “Veteran” Jawa Timur</span>. 
+        Memiliki ketertarikan di bidang <span class="text-indigo-400">otomasi industri</span> dan 
+        <span class="text-indigo-400">komunikasi internasional</span>. Dengan pemahaman dasar <span class="text-indigo-400">PLC</span> dan kemampuan <span class="text-indigo-400">berbahasa Inggris</span>.
+      </p>
+      <blockquote class="italic text-indigo-500">"Innovating industry, one step at a time."</blockquote>
+    </div>
+  </div>
+
+  <!-- Skills & Quote -->
+  <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 drop-shadow-md">
+    <div class="bg-indigo-100 p-4 rounded-lg shadow hover:shadow-indigo-300 transition">
+      <h4 class="font-semibold mb-2 text-black">PLC Programming</h4>
+      <div class="w-full bg-gray-200 h-2 rounded-full">
+        <div class="bg-indigo-500 h-2 rounded-full w-2/5"></div>
+      </div>
     </div>
 
-    <!-- Statistic Cards -->
-    <div class="flex justify-center gap-6 mt-12 flex-wrap">
-      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-indigo-500/50 transition-shadow w-40">
-        <i data-feather="folder" class="w-8 h-8 text-indigo-500 mb-2"></i>
-        <h3 class="text-3xl font-bold text-white">5</h3>
-        <p class="text-gray-300 mt-1">Projects</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-purple-500/50 transition-shadow w-40">
-        <i data-feather="award" class="w-8 h-8 text-purple-500 mb-2"></i>
-        <h3 class="text-3xl font-bold text-white">2</h3>
-        <p class="text-gray-300 mt-1">Licenses</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-pink-500/50 transition-shadow w-40">
-        <i data-feather="briefcase" class="w-8 h-8 text-pink-500 mb-2"></i>
-        <h3 class="text-3xl font-bold text-white">4</h3>
-        <p class="text-gray-300 mt-1">Experience</p>
+    <div class="bg-indigo-100 p-4 rounded-lg shadow hover:shadow-indigo-300 transition">
+      <h4 class="font-semibold mb-2 text-black">English Communication</h4>
+      <div class="w-full bg-gray-200 h-2 rounded-full">
+        <div class="bg-indigo-500 h-2 rounded-full w-2/5"></div>
       </div>
     </div>
+
+    <div class="bg-indigo-50 p-4 rounded-lg shadow italic text-black flex items-center justify-center">
+      "Innovating industry, one step at a time."
+    </div>
+  </div>
+
+  <!-- Statistic Cards -->
+  <div class="flex justify-center gap-6 mt-12 flex-wrap">
+    <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-indigo-500/50 transition-shadow w-40">
+      <i data-feather="folder" class="w-8 h-8 text-indigo-400 mb-2"></i>
+      <h3 class="text-3xl font-bold text-black">2</h3>
+      <p class="text-black mt-1">Projects</p>
+    </div>
+
+    <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-purple-500/50 transition-shadow w-40">
+      <i data-feather="award" class="w-8 h-8 text-purple-400 mb-2"></i>
+      <h3 class="text-3xl font-bold text-black">2</h3>
+      <p class="text-black mt-1">Licenses</p>
+    </div>
+
+    <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-pink-500/50 transition-shadow w-40">
+      <i data-feather="briefcase" class="w-8 h-8 text-pink-400 mb-2"></i>
+      <h3 class="text-3xl font-bold text-black">4</h3>
+      <p class="text-black mt-1">Experience</p>
+    </div>
+  </div>
 </section>
 
-<!-- Tabs -->
+<!-- Portfolio Tabs -->
 <section id="portfolio" class="max-w-6xl mx-auto px-6 py-12">
     <div class="flex justify-center gap-4 mb-8 border-b-2 border-gray-700 overflow-x-auto">
-        <button id="tab-projects" class="px-4 py-2 font-semibold text-indigo-500 border-b-2 border-indigo-500 focus:outline-none whitespace-nowrap">Projects</button>
-        <button id="tab-certificates" class="px-4 py-2 font-semibold text-gray-400 hover:text-indigo-500 focus:outline-none whitespace-nowrap">Certificates</button>
+        <button id="tab-projects" class="px-4 py-2 font-semibold text-indigo-400 border-b-2 border-indigo-400">Projects</button>
+        <button id="tab-certificates" class="px-4 py-2 font-semibold text-black hover:text-indigo-400">Certificates</button>
     </div>
 
-    <!-- Projects Content -->
     <div id="content-projects" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+        <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
+            <img src="src/project1.jpeg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
             <div class="p-6">
-                <h4 class="text-xl font-semibold mb-2 text-white">Alat Penggiling Adonan Chireng</h4>
-                <p class="text-gray-300 mb-4">Alat inovatif untuk penggilingan adonan chireng.</p>
-                <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
-            </div>
-        </div>
-        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-            <div class="p-6">
-                <h4 class="text-xl font-semibold mb-2 text-white">Dishnest</h4>
-                <p class="text-gray-300 mb-4">Tempat penyimpanan alat dapur multifungsi.</p>
-                <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
-            </div>
-        </div>
-        <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1527219525722-f9767a7f2884?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-            <div class="p-6">
-                <h4 class="text-xl font-semibold mb-2 text-white">Rak Sepatu</h4>
-                <p class="text-gray-300 mb-4">Rak sepatu dengan mekanisme buka pintu inovatif.</p>
+                <h4 class="text-xl font-semibold mb-2 text-black">Kontrol Motor Forward-Reverse dengan PLC CX-Programmer</h4>
+                <p class="text-black mb-4">Simulasi PLC untuk mengendalikan motor maju dan mundur dengan tombol tekan.</p>
                 <a href="detail-project.html" class="text-indigo-400 font-medium hover:underline">Details →</a>
             </div>
         </div>
     </div>
 
-    <!-- Certificates Content -->
     <div id="content-certificates" class="hidden grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      
-      <!-- Sertifikat 1 -->
-      <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
-        <img 
-          src="src/JW Marriott Surabaya-1.png" 
-          alt="JW Marriott Surabaya"
-          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-        >
+      <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-xl hover:shadow-indigo-500/50 overflow-hidden group">
+        <img src="src/JW Marriott Surabaya-1.png" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
         <div class="p-6">
-          <h4 class="text-xl font-semibold mb-2 text-white">JW Marriott Surabaya</h4>
-          <p class="text-gray-300 mb-4">Sertifikat Audio Visual</p>
+          <h4 class="text-xl font-semibold mb-2 text-black">JW Marriott Surabaya</h4>
+          <p class="text-black mb-4">Sertifikat Audio Visual</p>
           <a href="detail-sertifikat.html" class="text-indigo-400 font-medium hover:underline">View →</a>
         </div>
       </div>
 
-      <!-- Sertifikat 2 -->
-      <div class="bg-gray-900 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition-shadow overflow-hidden group">
-        <img 
-          src="src/sertif_0001-1.png" 
-          alt="Sertifikat Bahasa Inggris"
-          class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-        >
+      <div class="bg-gradient-to-b from-indigo-200 to-pink-200 rounded-xl shadow-xl hover:shadow-indigo-500/50 overflow-hidden group">
+        <img src="src/sertif_0001-1.png" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
         <div class="p-6">
-          <h4 class="text-xl font-semibold mb-2 text-white">Sertifikat Bahasa Inggris</h4>
-          <p class="text-gray-300 mb-4">Sertifikat Kursus Bahasa Inggris</p>
+          <h4 class="text-xl font-semibold mb-2 text-black">Sertifikat Bahasa Inggris</h4>
+          <p class="text-black mb-4">Sertifikat Kursus Bahasa Inggris</p>
           <a href="detail-sertifikat-1.html" class="text-indigo-400 font-medium hover:underline">View →</a>
         </div>
       </div>
-
     </div>
-
 </section>
 
 <!-- Contact -->
 <section id="contact" class="py-20 max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-12 text-center text-indigo-500">Get in Touch</h2>
+    <h2 class="text-3xl font-semibold mb-12 text-center bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">Get in Touch</h2>
     <form class="flex flex-col gap-6">
-        <input type="text" placeholder="Your Name" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        <input type="email" placeholder="Your Email" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        <textarea placeholder="Your Message" rows="5" required class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-        <button type="submit" class="bg-indigo-500 text-gray-900 py-4 rounded-lg font-semibold hover:bg-indigo-600 transition-colors">Send Message</button>
+        <input type="text" placeholder="Your Name" class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-black focus:ring-2 focus:ring-indigo-500">
+        <input type="email" placeholder="Your Email" class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-black focus:ring-2 focus:ring-indigo-500">
+        <textarea placeholder="Your Message" rows="5" class="p-4 border border-gray-700 rounded-lg bg-gray-900 text-black focus:ring-2 focus:ring-indigo-500"></textarea>
+        <button type="submit" class="bg-gradient-to-r from-indigo-500 to-purple-500 text-black py-4 rounded-lg font-semibold hover:opacity-90">Send Message</button>
     </form>
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-12 bg-gray-900 text-gray-400">
-  <h3 class="text-xl font-semibold mb-4 text-indigo-500" id="contact">Connect With Me</h3>
-  
+<footer class="text-center py-12 bg-gradient-to-r from-gray-900 to-gray-800 text-black">
+  <h3 class="text-xl font-semibold mb-4 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent" id="contact">Connect With Me</h3>
   <div class="flex justify-center gap-6 mb-6 flex-wrap">
-    <!-- LinkedIn -->
-    <a href="#" target="_blank" aria-label="LinkedIn" 
-       class="text-blue-500 hover:text-blue-400 transition-transform transform hover:scale-110">
-      <i data-feather="linkedin" class="w-6 h-6 inline-block"></i>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://instagram.com/dickysca_" target="_blank" aria-label="Instagram" 
-       class="text-pink-500 hover:text-pink-400 transition-transform transform hover:scale-110">
-      <i data-feather="instagram" class="w-6 h-6 inline-block"></i>
-    </a>
-
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@BangDicky" target="_blank" aria-label="YouTube" 
-       class="text-red-500 hover:text-red-400 transition-transform transform hover:scale-110">
-      <i data-feather="youtube" class="w-6 h-6 inline-block"></i>
-    </a>
-
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@dickysca" target="_blank" aria-label="TikTok" 
-       class="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
-      <i data-feather="music" class="w-6 h-6 inline-block"></i>
-    </a>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6281243601082" target="_blank" aria-label="WhatsApp" 
-       class="text-green-500 hover:text-green-400 transition-transform transform hover:scale-110">
-      <i data-feather="message-circle" class="w-6 h-6 inline-block"></i>
-    </a>
+    <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="linkedin"></i></a>
+    <a href="https://instagram.com/dickysca_" class="text-pink-400 hover:text-pink-300"><i data-feather="instagram"></i></a>
+    <a href="https://www.youtube.com/@BangDicky" class="text-red-400 hover:text-red-300"><i data-feather="youtube"></i></a>
+    <a href="https://www.tiktok.com/@dickysca" class="text-black hover:text-black"><i data-feather="music"></i></a>
+    <a href="https://wa.me/6281243601082" class="text-green-400 hover:text-green-300"><i data-feather="message-circle"></i></a>
   </div>
-
   <p class="text-gray-500">© 2025 Dicky Arisandi — Portofolio Project</p>
 </footer>
-
 
 <script>
 feather.replace();
@@ -253,33 +244,31 @@ const contentCertificates = document.getElementById('content-certificates');
 tabProjects.addEventListener('click', () => {
     contentProjects.classList.remove('hidden');
     contentCertificates.classList.add('hidden');
-    tabProjects.classList.add('text-indigo-500', 'border-b-2', 'border-indigo-500');
-    tabProjects.classList.remove('text-gray-400');
-    tabCertificates.classList.add('text-gray-400');
-    tabCertificates.classList.remove('text-indigo-500', 'border-b-2', 'border-indigo-500');
+    tabProjects.classList.add('text-indigo-400', 'border-b-2', 'border-indigo-400');
+    tabProjects.classList.remove('text-black');
+    tabCertificates.classList.add('text-black');
+    tabCertificates.classList.remove('text-indigo-400', 'border-b-2', 'border-indigo-400');
 });
 
 tabCertificates.addEventListener('click', () => {
     contentCertificates.classList.remove('hidden');
     contentProjects.classList.add('hidden');
-    tabCertificates.classList.add('text-indigo-500', 'border-b-2', 'border-indigo-500');
-    tabCertificates.classList.remove('text-gray-400');
-    tabProjects.classList.add('text-gray-400');
-    tabProjects.classList.remove('text-indigo-500', 'border-b-2', 'border-indigo-500');
+    tabCertificates.classList.add('text-indigo-400', 'border-b-2', 'border-indigo-400');
+    tabCertificates.classList.remove('text-black');
+    tabProjects.classList.add('text-black');
+    tabProjects.classList.remove('text-indigo-400', 'border-b-2', 'border-indigo-400');
 });
 
-// Header text animation in/out
+// Header text animation loop
 const animatedText = document.getElementById('animated-text');
 const animatedSubtext = document.getElementById('animated-subtext');
 
 function animateTextLoop() {
-    // Masuk
     animatedText.classList.remove('animate-out');
     animatedText.classList.add('animate-in');
     animatedSubtext.classList.remove('animate-out');
     animatedSubtext.classList.add('animate-in');
 
-    // Keluar setelah 3 detik
     setTimeout(() => {
         animatedText.classList.remove('animate-in');
         animatedText.classList.add('animate-out');
@@ -287,7 +276,6 @@ function animateTextLoop() {
         animatedSubtext.classList.add('animate-out');
     }, 3000);
 
-    // Looping setiap 4 detik
     setTimeout(animateTextLoop, 4000);
 }
 
